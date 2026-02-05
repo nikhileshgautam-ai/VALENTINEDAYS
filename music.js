@@ -2,7 +2,7 @@ const music = document.getElementById("bgMusic");
 music.volume = 0.4;
 
 // Check if this is the start page (beginning of the journey)
-const isStartPage = window.location.pathname.endsWith("start.html");
+const isStartPage = window.location.pathname.endsWith("index.html") || window.location.pathname.endsWith("/");
 
 // Restore the saved time IMMEDIATELY (before audio loads)
 if (isStartPage) {
