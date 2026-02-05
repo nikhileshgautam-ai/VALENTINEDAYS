@@ -10,7 +10,7 @@ if (isStartPage) {
   localStorage.removeItem("musicTime");
   music.currentTime = 0;
 } else {
-  // Resume from last saved time on all other pages (including index.html)
+  // Resume from last saved time on all other pages
   const savedTime = localStorage.getItem("musicTime");
   if (savedTime) {
     try {
@@ -21,24 +21,42 @@ if (isStartPage) {
   }
 }
 
+// Track if music has been enabled by user
+let musicEnabled = false;
+
 // Function to play music
-const tryPlay = () => {
-  music.play().catch(() => {
-    // If autoplay fails, wait for user interaction
-    document.addEventListener("click", () => {
-      music.play().catch(() => {});
-    }, { once: true });
-  });
+const playMusic = () => {
+  if (!musicEnabled) {
+    musicEnabled = true;
+  }
+  const playPromise = music.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Autoplay blocked, will play on next interaction
+    });
+  }
 };
 
-// Wait for audio to be ready, then play
-if (music.readyState >= 2) {
-  // Audio is already loaded enough
-  tryPlay();
-} else {
-  // Wait for audio to load
-  music.addEventListener("canplay", tryPlay, { once: true });
-}
+// Try to play immediately (works on desktop)
+playMusic();
+
+// For mobile: Enable audio on ANY user interaction
+const enableAudioOnInteraction = () => {
+  playMusic();
+};
+
+// Listen for all types of user interactions (important for mobile)
+document.addEventListener("click", enableAudioOnInteraction);
+document.addEventListener("touchstart", enableAudioOnInteraction);
+document.addEventListener("touchend", enableAudioOnInteraction);
+document.addEventListener("keydown", enableAudioOnInteraction);
+
+// Also try when page becomes visible
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && musicEnabled) {
+    playMusic();
+  }
+});
 
 // Save current time continuously
 setInterval(() => {
