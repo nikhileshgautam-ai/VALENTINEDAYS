@@ -66,18 +66,12 @@
 </div>
 
 <script>
-  // Redirect to start.html if this is the landing page
-  if (document.referrer === '' || !document.referrer.includes(window.location.hostname)) {
-    // First time visitor or coming from external link - redirect to start
-    window.location.href = 'start.html';
-  } else {
-    // Display personal message if exists
-    const personalMsg = localStorage.getItem('personalMessage');
-    if (personalMsg) {
-      document.getElementById('personalNoteDisplay').innerHTML = 
-        '<p class="story-intro">A message for you:</p>' +
-        '<div class="personal-note">' + personalMsg + '</div>';
-    }
+  // Display personal message if exists
+  const personalMsg = localStorage.getItem('personalMessage');
+  if (personalMsg) {
+    document.getElementById('personalNoteDisplay').innerHTML = 
+      '<p class="story-intro">A message for you:</p>' +
+      '<div class="personal-note">' + personalMsg + '</div>';
   }
 </script>
 
