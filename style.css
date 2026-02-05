@@ -173,66 +173,6 @@ button {
   z-index: 9999;
 }
 
-/* 📱 MOBILE ADJUSTMENTS */
-@media (max-width: 400px) {
-  .heart-bg {
-    max-width: 280px;
-  }
-
-  .content {
-    width: 260px;
-    height: auto;
-    min-height: 300px;
-    top: 45%;
-    padding: 10px;
-  }
-
-  .gif {
-    width: 140px;
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 10px auto;
-  }
-
-  .curve-text {
-    position: relative;
-    top: 0;
-    height: 100px;
-  }
-
-  .curve-text text {
-    font-size: 18px;
-  }
-
-  .buttons {
-    position: relative;
-    bottom: auto;
-    margin-top: 15px;
-  }
-
-  button {
-    padding: 8px 18px;
-    font-size: 14px;
-  }
-}
-
-@media (max-height: 650px) {
-  .content {
-    top: 50%;
-    height: auto;
-  }
-
-  .gif {
-    width: 120px;
-  }
-
-  .heart-bg {
-    max-width: 260px;
-  }
-}
-
 /* 💻 DESKTOP ADJUSTMENT */
 @media (min-width: 768px) {
   .heart-bg {
