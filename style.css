@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Patrick Hand', cursive;
+}
+
+body {
+  background: #f7c6d0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SCREEN */
+.screen {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ❤️ HEART BACKGROUND (FIXED) */
+.heart-bg {
+  position: absolute;
+  width: 88vw;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  background: #ffd9e4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-radius: 24px;
+  z-index: 1;
+  pointer-events: none;
+  animation: beat 1.6s infinite;
+}
+
+/* heart circles */
+.heart-bg::before,
+.heart-bg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffd9e4;
+  border-radius: 50%;
+}
+
+.heart-bg::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart-bg::after {
+  left: 50%;
+  top: 0;
+}
+
+/* ❤️ heartbeat */
+@keyframes beat {
+  0%   { transform: translate(-50%, -50%) rotate(-45deg) scale(1); }
+  30%  { transform: translate(-50%, -50%) rotate(-45deg) scale(1.03); }
+  55%  { transform: translate(-50%, -50%) rotate(-45deg) scale(0.98); }
+  100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); }
+}
+
+/* CONTENT */
+.content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 300px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* CURVED TEXT – CENTERED */
+.curve-text {
+  position: absolute;
+  top: 5px;   /* 🔥 aur upar */
+  left: 0;
+  width: 100%;
+  height: 130px;
+}
+
+
+.curve-text text {
+  fill: #7a2e3a;
+  font-size: 22px;
+}
+
+/* GIF – CENTER */
+.gif {
+  position: absolute;
+  top: 52%;                 /* 🔥 thoda upar */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 210px;             /* 🔥 bigger */
+}
+/* ❤️ MESSAGE TEXT – MOVE UP */
+.message-text {
+  position: absolute;
+  top: -10%;            /* 🔥 yahan se control milega */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  color: #7a2e3a;
+  font-size: 18px;
+  line-height: 1.4;
+}
+/* 🎵 Music Button */
+.music-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #b73a3a;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* BUTTONS – HEART KE ANDAR */
+.buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+}
+
+button {
+  padding: 8px 24px;
+  border-radius: 18px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  background: #b73a3a;
+  color: white;
+}
+
+/* 📊 Progress Indicator */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #b73a3a);
+  z-index: 9999;
+  transition: width 0.3s ease;
+}
+
+/* 🌟 Day indicator */
+.day-indicator {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: #9e4a5a;
+  background: rgba(255,255,255,0.8);
+  padding: 4px 10px;
+  border-radius: 12px;
+  z-index: 9999;
+}
+
+/* 💻 DESKTOP ADJUSTMENT */
+@media (min-width: 768px) {
+  .heart-bg {
+    max-width: 420px;
+  }
+
+  .content {
+    width: 360px;
+    height: 360px;
+  }
+
+  .gif {
+    width: 190px;
+  }
+}

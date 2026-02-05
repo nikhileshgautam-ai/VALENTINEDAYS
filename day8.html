@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Valentine’s Day ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Confetti Animation */
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .confetti {
+      position: absolute;
+      top: -10px;
+      animation: confettiFall 4s linear infinite;
+    }
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0.7;
+      }
+    }
+    /* Glowing title */
+    .glow-text {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b; }
+      to { text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757, 0 0 30px #ff4757; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Confetti -->
+<div class="confetti-container" id="confetti"></div>
+
+<div class="screen">
+
+  <!-- HEART BACKGROUND -->
+  <div class="heart-bg"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- Story Chapter - Finale -->
+    <div style="font-size: 12px; color: #9e4a5a; letter-spacing: 2px; margin-bottom: 5px;">✨ The Grand Finale ✨</div>
+    <div class="glow-text" style="font-size: 22px; color: #7a2e3a; font-weight: bold; margin-bottom: 10px;">Happy ❤️Valentine's Day</div>
+    <div style="font-size: 13px; color: #9e4a5a; font-style: italic; margin-bottom: 8px;">I'LL do everything i can, TBH It's getting hard (not that I'm giving up)</div>
+    <div style="font-size: 13px; color: #9e4a5a; font-style: italic; margin-bottom: 8px;">To not being able to stop thinking about you and still have questions</div>
+    <div style="font-size: 13px; color: #9e4a5a; font-style: italic; margin-bottom: 8px;">about my existance in your life</div>
+    <div style="font-size: 13px; color: #9e4a5a; font-style: italic; margin-bottom: 8px;">I Love You❤️,Krashi</div>
+    <div class="glow-text" style="font-size: 22px; color: #7a2e3a; font-weight: bold; margin-bottom: 10px;">Will you be my Valentine? 💕</div>
+
+    <!-- GIF -->
+    <img src="public/valentine.gif" class="gif" style="width: 150px; position: relative; top: auto; left: auto; transform: none; margin: 10px auto;">
+
+    <!-- Message -->
+    <!-- <div class="message-text" style="position: relative; top: auto; transform: none; margin-top: 10px;">
+      <br>e
+      meri kahani tum par hi aake rukti hai 😌  
+      <br>
+      <strong>Will you be my Valentine? ❤️✨</strong>
+      <br>
+      <span style="font-size: 14px;">Forever Yours 💕</span>
+    </div> -->
+
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button onclick="location.href='start.html'">Replay 🔁</button>
+    </div>
+
+  </div>
+
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="public/Ishq Wala Love   SOTY.mp3" type="audio/mpeg">
+</audio>
+<script src="music.js"></script>
+
+<script>
+  // Create confetti
+  function createConfetti() {
+    const container = document.getElementById('confetti');
+    const confettiPieces = ['❤️', '💕', '💖', '💗', '✨', '🌟', '💫', '🧡', '💛', '💜'];
+    
+    for (let i = 0; i < 30; i++) {
+      const confetti = document.createElement('span');
+      confetti.className = 'confetti';
+      confetti.textContent = confettiPieces[Math.floor(Math.random() * confettiPieces.length)];
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.animationDelay = Math.random() * 4 + 's';
+      confetti.style.fontSize = (12 + Math.random() * 16) + 'px';
+      container.appendChild(confetti);
+    }
+  }
+  createConfetti();
+</script>
+
+</body>
+</html>

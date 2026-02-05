@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oops! 😢</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sad-text {
+      animation: shake 0.5s ease-in-out infinite;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    .growing-btn {
+      animation: grow 0.8s ease-in-out infinite;
+    }
+    @keyframes grow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .tears {
+      font-size: 24px;
+      animation: fall 1s ease-in infinite;
+    }
+    @keyframes fall {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="screen">
+
+  <!-- HEART BACKGROUND -->
+  <div class="heart-bg"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- Sad Header -->
+    <div class="sad-text" style="font-size: 24px; color: #7a2e3a; font-weight: bold; margin-bottom: 10px;">
+      Wait... NO?! 😱
+    </div>
+    <div style="font-size: 14px; color: #9e4a5a; margin-bottom: 15px;">
+      <span class="tears">😢</span> Please reconsider... <span class="tears">😢</span>
+    </div>
+
+    <!-- Sad GIF -->
+    <img src="public/2.gif" class="gif" style="width: 160px; position: relative; top: auto; left: auto; transform: none; margin: 10px auto;">
+
+    <div style="font-size: 16px; color: #7a2e3a; margin: 15px 0;">
+      This was supposed to be our love story... 💔
+      <br>
+      <span style="font-size: 14px; color: #9e4a5a;">One more chance? Pretty please? 🥺</span>
+    </div>
+
+    <!-- Button -->
+    <div class="buttons">
+      <button class="growing-btn" onclick="location.href='index.html'" style="background: linear-gradient(135deg, #b73a3a, #d4585a);">
+        Okay, YES! 💕
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="public/Ishq Wala Love   SOTY.mp3" type="audio/mpeg">
+</audio>
+<script src="music.js"></script>
+
+</body>
+</html>
